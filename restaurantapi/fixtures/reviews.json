@@ -1,0 +1,56 @@
+[
+     {
+    "model": "restaurantapi.review",
+    "pk": 1,
+    "fields": {
+      "review": "Amazing hot chicken! The medium spice was perfect and the service was excellent. Highly recommend trying the hot chicken sandwich.",
+      "restaurant": 1,
+      "user": 1
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 2,
+    "fields": {
+      "review": "Great food but a bit too spicy for me. Atmosphere is casual and fun. Would come back for the mild version.",
+      "restaurant": 1,
+      "user": 2
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 3,
+    "fields": {
+      "review": "Best BBQ in Memphis! The ribs fall off the bone and the live music creates such a great vibe. Don't skip the mac and cheese!",
+      "restaurant": 2,
+      "user": 1
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 4,
+    "fields": {
+      "review": "Decent BBQ but service was slow. The pulled pork was good though.",
+      "restaurant": 2,
+      "user": 3
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 5,
+    "fields": {
+      "review": "Beautiful restaurant with an incredible view. The food is fresh and expertly prepared. Perfect for a special occasion.",
+      "restaurant": 3,
+      "user": 2
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 6,
+    "fields": {
+      "review": "Quick, delicious tacos at a great price! The al pastor is my favorite. Perfect spot for lunch by the river.",
+      "restaurant": 4,
+      "user": 3
+    }
+  }
+]
