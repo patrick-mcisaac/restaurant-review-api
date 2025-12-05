@@ -7,4 +7,3 @@ router = routers.DefaultRouter(trailing_slash=False)
 urlpatterns = [
     path('', include(router.urls)),
 ]
-
