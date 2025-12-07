@@ -1,10 +1,11 @@
 [
-     {
+    {
     "model": "restaurantapi.rating",
     "pk": 1,
     "fields": {
       "score": 5,
       "restaurant": 1,
+      "restaurant_location": 1,
       "user": 1
     }
   },
@@ -14,6 +15,7 @@
     "fields": {
       "score": 4,
       "restaurant": 1,
+      "restaurant_location": 1,
       "user": 2
     }
   },
@@ -23,6 +25,7 @@
     "fields": {
       "score": 5,
       "restaurant": 2,
+      "restaurant_location": 2,
       "user": 1
     }
   },
@@ -32,6 +35,7 @@
     "fields": {
       "score": 3,
       "restaurant": 2,
+      "restaurant_location": 3,
       "user": 3
     }
   },
@@ -41,6 +45,7 @@
     "fields": {
       "score": 4,
       "restaurant": 3,
+      "restaurant_location": 4,
       "user": 2
     }
   },
@@ -50,6 +55,7 @@
     "fields": {
       "score": 5,
       "restaurant": 4,
+      "restaurant_location": 5,
       "user": 3
     }
   }

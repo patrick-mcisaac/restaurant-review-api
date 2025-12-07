@@ -1,46 +1,34 @@
 [
- {
+  {
     "model": "restaurantapi.restaurant",
     "pk": 1,
     "fields": {
-      "name": "The Hot Chicken Shack",
-      "hours": "Mon-Sun: 11:00 AM - 10:00 PM",
-      "address": "123 Broadway, Nashville, TN 37201",
-      "description": "Authentic Nashville hot chicken with a variety of heat levels",
-      "location": [1]
+      "name": "The Fancy Fork",
+      "description": "Upscale dining with a modern twist on Southern classics"
     }
   },
   {
     "model": "restaurantapi.restaurant",
     "pk": 2,
     "fields": {
-      "name": "BBQ Blues",
-      "hours": "Mon-Sat: 12:00 PM - 11:00 PM, Sun: Closed",
-      "address": "456 Beale Street, Memphis, TN 38103",
-      "description": "Memphis-style BBQ with live blues music on weekends",
-      "location": [2]
+      "name": "Pizza Paradise",
+      "description": "Authentic wood-fired pizzas with fresh ingredients"
     }
   },
   {
     "model": "restaurantapi.restaurant",
     "pk": 3,
     "fields": {
-      "name": "Mountain View Bistro",
-      "hours": "Tue-Sun: 5:00 PM - 10:00 PM, Mon: Closed",
-      "address": "789 Gay Street, Knoxville, TN 37902",
-      "description": "Fine dining with scenic mountain views and locally sourced ingredients",
-      "location": [3]
+      "name": "Sushi Sensation",
+      "description": "Fresh sushi and Japanese cuisine in a contemporary setting"
     }
   },
   {
     "model": "restaurantapi.restaurant",
     "pk": 4,
     "fields": {
-      "name": "Riverside Tacos",
-      "hours": "Daily: 10:00 AM - 9:00 PM",
-      "address": "321 Riverfront Dr, Nashville, TN 37201",
-      "description": "Fresh authentic tacos and margaritas by the river",
-      "location": [1]
+      "name": "BBQ Barn",
+      "description": "Slow-smoked meats and traditional Tennessee BBQ"
     }
   }
 ]

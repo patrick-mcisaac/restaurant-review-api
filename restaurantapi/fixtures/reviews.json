@@ -1,10 +1,11 @@
 [
-     {
+  {
     "model": "restaurantapi.review",
     "pk": 1,
     "fields": {
-      "review": "Amazing hot chicken! The medium spice was perfect and the service was excellent. Highly recommend trying the hot chicken sandwich.",
+      "review": "Amazing food and excellent service! The ambiance was perfect for our anniversary dinner.",
       "restaurant": 1,
+      "restaurant_location": 1,
       "user": 1
     }
   },
@@ -12,8 +13,9 @@
     "model": "restaurantapi.review",
     "pk": 2,
     "fields": {
-      "review": "Great food but a bit too spicy for me. Atmosphere is casual and fun. Would come back for the mild version.",
+      "review": "Great restaurant but a bit pricey. The food quality was outstanding though.",
       "restaurant": 1,
+      "restaurant_location": 1,
       "user": 2
     }
   },
@@ -21,8 +23,9 @@
     "model": "restaurantapi.review",
     "pk": 3,
     "fields": {
-      "review": "Best BBQ in Memphis! The ribs fall off the bone and the live music creates such a great vibe. Don't skip the mac and cheese!",
+      "review": "Best pizza in Nashville! The crust is perfectly crispy and the toppings are always fresh.",
       "restaurant": 2,
+      "restaurant_location": 2,
       "user": 1
     }
   },
@@ -30,8 +33,9 @@
     "model": "restaurantapi.review",
     "pk": 4,
     "fields": {
-      "review": "Decent BBQ but service was slow. The pulled pork was good though.",
+      "review": "Good pizza but service was a bit slow on a Saturday night. Still worth visiting!",
       "restaurant": 2,
+      "restaurant_location": 3,
       "user": 3
     }
   },
@@ -39,8 +43,9 @@
     "model": "restaurantapi.review",
     "pk": 5,
     "fields": {
-      "review": "Beautiful restaurant with an incredible view. The food is fresh and expertly prepared. Perfect for a special occasion.",
+      "review": "Fresh sushi and beautiful presentation. The chef's special roll was incredible.",
       "restaurant": 3,
+      "restaurant_location": 4,
       "user": 2
     }
   },
@@ -48,8 +53,9 @@
     "model": "restaurantapi.review",
     "pk": 6,
     "fields": {
-      "review": "Quick, delicious tacos at a great price! The al pastor is my favorite. Perfect spot for lunch by the river.",
+      "review": "Authentic Tennessee BBQ! The ribs fall off the bone and the sauce is phenomenal.",
       "restaurant": 4,
+      "restaurant_location": 5,
       "user": 3
     }
   }

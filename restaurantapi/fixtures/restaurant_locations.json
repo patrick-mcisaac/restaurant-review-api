@@ -1,0 +1,52 @@
+[
+    {
+    "model": "restaurantapi.restaurantlocation",
+    "pk": 1,
+    "fields": {
+      "location": 1,
+      "restaurant": 1,
+      "hours": "Mon-Thu 5pm-10pm, Fri-Sat 5pm-11pm, Sun Closed",
+      "address": "123 Broadway St, Nashville, TN 37201"
+    }
+  },
+  {
+    "model": "restaurantapi.restaurantlocation",
+    "pk": 2,
+    "fields": {
+      "location": 1,
+      "restaurant": 2,
+      "hours": "Daily 11am-10pm",
+      "address": "456 Music Row, Nashville, TN 37203"
+    }
+  },
+  {
+    "model": "restaurantapi.restaurantlocation",
+    "pk": 3,
+    "fields": {
+      "location": 2,
+      "restaurant": 2,
+      "hours": "Daily 11am-10pm",
+      "address": "789 Beale St, Memphis, TN 38103"
+    }
+  },
+  {
+    "model": "restaurantapi.restaurantlocation",
+    "pk": 4,
+    "fields": {
+      "location": 1,
+      "restaurant": 3,
+      "hours": "Tue-Sun 12pm-9pm, Mon Closed",
+      "address": "321 West End Ave, Nashville, TN 37203"
+    }
+  },
+  {
+    "model": "restaurantapi.restaurantlocation",
+    "pk": 5,
+    "fields": {
+      "location": 3,
+      "restaurant": 4,
+      "hours": "Wed-Sun 11am-8pm, Mon-Tue Closed",
+      "address": "555 Cumberland Ave, Knoxville, TN 37902"
+    }
+  }
+]

@@ -8,3 +8,4 @@ class Rating(models.Model):
     score = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
     restaurant = models.ForeignKey("Restaurant", on_delete=models.CASCADE, related_name='restaurant_ratings')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='restaurant_ratings')
+    restaurant_location = models.ForeignKey('RestaurantLocation', on_delete=models.CASCADE, related_name='rating')

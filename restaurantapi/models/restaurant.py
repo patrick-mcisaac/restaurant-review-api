@@ -2,13 +2,16 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from .rating import Rating
+
 
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
-    hours = models.CharField(max_length=255)
-    address= models.CharField(max_length=255)
     description=models.CharField(max_length=255)
-    location = models.ManyToManyField('Location', related_name='restaurants')
     ratings = models.ManyToManyField(User, through='Rating', related_name='ratings')
     reviews = models.ManyToManyField(User, through='Review', related_name='reviews')
+
+    @property
+    def average_ratings(self):
+        return Rating.objects.filter(restaurant=self).aggregate(models.Avg('score'))['score__avg'] or 0
