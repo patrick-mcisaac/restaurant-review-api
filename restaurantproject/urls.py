@@ -10,5 +10,6 @@ router.register(r'locations',Locations, 'location')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('login', Auth.as_view({'post': 'login'}), name='login')
+    path('login', Auth.as_view({'post': 'login'}), name='login'),
+    path('register', Auth.as_view({'post': 'register'}), name='register'),
 ]
