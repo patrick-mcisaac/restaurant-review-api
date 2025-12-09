@@ -37,4 +37,4 @@ class RestaurantSerializer(serializers.ModelSerializer):
     locations = RestaurantLocationSerializer(many=True)
     class Meta:
         model = Restaurant
-        fields = ['id','average_ratings', 'name', 'description', 'restaurant_reviews', 'locations']
+        fields = ['id','average_ratings', 'name', 'description', 'restaurant_reviews', 'locations', 'image']
