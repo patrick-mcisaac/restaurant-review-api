@@ -6,4 +6,3 @@ class RestaurantLocation(models.Model):
     restaurant = models.ForeignKey('Restaurant', on_delete=models.CASCADE, related_name='locations')
     hours = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
-

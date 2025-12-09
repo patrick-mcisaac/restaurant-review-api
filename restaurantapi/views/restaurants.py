@@ -1,14 +1,15 @@
 from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from restaurantapi.models import Restaurant, Review
+from restaurantapi.models import Restaurant, Review, RestaurantLocation
+from .locations import LocationSerializer
 
 class Restaurants(ViewSet):
     def list(self, request):
         restaurants = Restaurant.objects.all()
         ser = RestaurantSerializer(restaurants, many=True)
         return Response(ser.data, status=status.HTTP_200_OK)
-    
+
     def retrieve(self,request,pk = None):
         try:
             restaurant = Restaurant.objects.get(pk=pk)
@@ -23,10 +24,17 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = ['review', 'user', 'restaurant_location']
 
+class RestaurantLocationSerializer(serializers.ModelSerializer):
+
+    location = LocationSerializer(many=False)
+    
+    class Meta:
+        model = RestaurantLocation
+        fields = ['id', 'location', 'hours', 'address']
 
 class RestaurantSerializer(serializers.ModelSerializer):
     restaurant_reviews = ReviewSerializer(many=True)
-
+    locations = RestaurantLocationSerializer(many=True)
     class Meta:
         model = Restaurant
-        fields = ['id','average_ratings', 'name', 'description', 'restaurant_reviews']
+        fields = ['id','average_ratings', 'name', 'description', 'restaurant_reviews', 'locations']

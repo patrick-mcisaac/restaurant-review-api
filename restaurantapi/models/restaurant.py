@@ -11,6 +11,8 @@ class Restaurant(models.Model):
     description=models.CharField(max_length=255)
     ratings = models.ManyToManyField(User, through='Rating', related_name='ratings')
     reviews = models.ManyToManyField(User, through='Review', related_name='reviews')
+    # TODO: make a seperate image model so i can have many images
+    image = models.ImageField(upload_to='images', width_field=None, height_field=None, blank=True, null=True)
 
     @property
     def average_ratings(self):
