@@ -5,6 +5,11 @@ from restaurantapi.models import Location
 
 class Locations(ViewSet):
     def list(self, request):
+        restaurant = request.query_params.get('restaurant', None)
+        if restaurant is not None:
+            locations = Location.objects.filter(restaurants__restaurant = restaurant)
+            ser = LocationSerializer(locations, many=True)
+            return Response(ser.data, status=status.HTTP_200_OK)
         locations = Location.objects.all()
         ser = LocationSerializer(locations, many=True)
         return Response(ser.data, status=status.HTTP_200_OK)
