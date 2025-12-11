@@ -12,6 +12,14 @@ class Reviews(ViewSet):
             reviews = Review.objects.filter(restaurant=restaurant)
             ser = ReviewSerializer(reviews, many=True, context={'user': request.auth.user})
             return Response(ser.data, status=status.HTTP_200_OK)
+    
+    def retrieve(self, request, pk=None):
+        try:
+            review = Review.objects.get(pk=pk)
+            ser = ReviewSerializer(review, many=False, context={'user': request.auth.user})
+            return Response(ser.data, status=status.HTTP_200_OK)
+        except Review.DoesNotExist:
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request):
         restaurant = Restaurant.objects.get(pk=request.data.get('restaurant'))
@@ -55,7 +63,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     def get_restaurant_location(self, obj):
         location = Location.objects.get(pk=obj.restaurant_location.id)
-        return location.city
+        return {'id':location.id,'city':location.city}
     class Meta:
         model = Review
         fields = ['id', 'review', 'restaurant', 'user', 'restaurant_location', 'is_owner']
