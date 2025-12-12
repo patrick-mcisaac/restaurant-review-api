@@ -7,8 +7,7 @@ python3 manage.py makemigrations restaurantapi
 python3 manage.py migrate restaurantapi
 python3 manage.py loaddata users
 python3 manage.py loaddata tokens
-python3 manage.py loaddata locations
+python3 manage.py loaddata cities
 python3 manage.py loaddata restaurants
 python3 manage.py loaddata restaurant_locations
-python3 manage.py loaddata ratings
 python3 manage.py loaddata reviews

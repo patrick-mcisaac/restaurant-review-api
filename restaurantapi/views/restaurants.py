@@ -1,9 +1,10 @@
 from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from restaurantapi.models import Restaurant, Review, RestaurantLocation, Rating
-from .locations import LocationSerializer 
-from django.contrib.auth.models import User
+from restaurantapi.models import Restaurant, Review, RestaurantLocation, City
+from .Cities import CitySerializer
+from .reviews import ReviewSerializer
+
 
 class Restaurants(ViewSet):
     def list(self, request):
@@ -19,36 +20,31 @@ class Restaurants(ViewSet):
         except Restaurant.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
-class ReviewSerializer(serializers.ModelSerializer):
-
-
-    class Meta:
-        model = Review
-        fields = ['review', 'user', 'restaurant_location']
-
-
-
 class RestaurantLocationSerializer(serializers.ModelSerializer):
 
-    location = LocationSerializer(many=False)
+    location = CitySerializer(many=False)
 
     class Meta:
         model = RestaurantLocation
-        fields = ['id', 'location', 'hours', 'address']
+        fields = ['id', 'city', 'hours', 'address']
+
 
 class RestaurantSerializer(serializers.ModelSerializer):
-    user_score = serializers.SerializerMethodField()
-    restaurant_reviews = ReviewSerializer(many=True)
-    locations = RestaurantLocationSerializer(many=True)
+
+    restaurant_reviews = serializers.SerializerMethodField()
+    locations = serializers.SerializerMethodField()
+
+    def get_locations(self, obj):
+        locations = City.objects.filter(restaurants__restaurant=obj)
+        ser = CitySerializer(locations, many=True)
+        return ser.data
+
+
+    def get_restaurant_reviews(self, obj):
+        reviews = Review.objects.filter(restaurant_location__restaurant = obj)
+        ser = ReviewSerializer(reviews, many=True, context=self.context)
+        return ser.data
+
     class Meta:
         model = Restaurant
-        fields = ['id','average_ratings', 'name', 'description', 'restaurant_reviews', 'locations', 'image','user_score']
-    
-    def get_user_score(self, obj):
-
-        restaurant = obj
-        try:
-            user_rating = Rating.objects.get(user=self.context['user'], restaurant=restaurant)
-            return user_rating.score
-        except Rating.DoesNotExist:
-            return 0
+        fields = ['id', 'name', 'description', 'image', 'average_ratings', 'restaurant_reviews', 'locations']

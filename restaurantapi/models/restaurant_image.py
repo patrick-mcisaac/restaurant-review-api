@@ -1,1 +1,0 @@
-""" models to hold restaurant images  NOT MVP """

@@ -1,0 +1,23 @@
+[
+   {
+    "model": "restaurantapi.city",
+    "pk": 1,
+    "fields": {
+      "name": "Nashville"
+    }
+  },
+  {
+    "model": "restaurantapi.city",
+    "pk": 2,
+    "fields": {
+      "name": "Franklin"
+    }
+  },
+  {
+    "model": "restaurantapi.city",
+    "pk": 3,
+    "fields": {
+      "name": "Brentwood"
+    }
+  }
+]

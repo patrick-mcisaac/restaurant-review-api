@@ -1,52 +1,72 @@
 [
-    {
+  {
     "model": "restaurantapi.restaurantlocation",
     "pk": 1,
     "fields": {
-      "location": 1,
+      "city": 1,
       "restaurant": 1,
       "hours": "Mon-Thu 5pm-10pm, Fri-Sat 5pm-11pm, Sun Closed",
-      "address": "123 Broadway St, Nashville, TN 37201"
+      "address": "123 Broadway, Nashville, TN 37203"
     }
   },
   {
     "model": "restaurantapi.restaurantlocation",
     "pk": 2,
     "fields": {
-      "location": 1,
-      "restaurant": 2,
-      "hours": "Daily 11am-10pm",
-      "address": "456 Music Row, Nashville, TN 37203"
+      "city": 2,
+      "restaurant": 1,
+      "hours": "Tue-Sat 5pm-10pm, Sun-Mon Closed",
+      "address": "456 Main St, Franklin, TN 37064"
     }
   },
   {
     "model": "restaurantapi.restaurantlocation",
     "pk": 3,
     "fields": {
-      "location": 2,
+      "city": 1,
       "restaurant": 2,
-      "hours": "Daily 11am-10pm",
-      "address": "789 Beale St, Memphis, TN 38103"
+      "hours": "Sun-Thu 11am-10pm, Fri-Sat 11am-11pm",
+      "address": "789 Division St, Nashville, TN 37203"
     }
   },
   {
     "model": "restaurantapi.restaurantlocation",
     "pk": 4,
     "fields": {
-      "location": 1,
-      "restaurant": 3,
-      "hours": "Tue-Sun 12pm-9pm, Mon Closed",
-      "address": "321 West End Ave, Nashville, TN 37203"
+      "city": 3,
+      "restaurant": 2,
+      "hours": "Daily 11am-10pm",
+      "address": "321 Wilson Pike, Brentwood, TN 37027"
     }
   },
   {
     "model": "restaurantapi.restaurantlocation",
     "pk": 5,
     "fields": {
-      "location": 3,
+      "city": 1,
+      "restaurant": 3,
+      "hours": "Mon-Sat 11:30am-2pm, 5pm-10pm, Sun Closed",
+      "address": "555 Charlotte Ave, Nashville, TN 37209"
+    }
+  },
+  {
+    "model": "restaurantapi.restaurantlocation",
+    "pk": 6,
+    "fields": {
+      "city": 1,
       "restaurant": 4,
-      "hours": "Wed-Sun 11am-8pm, Mon-Tue Closed",
-      "address": "555 Cumberland Ave, Knoxville, TN 37902"
+      "hours": "Tue-Sat 11am-9pm, Sun 11am-8pm, Mon Closed",
+      "address": "888 Nolensville Pike, Nashville, TN 37211"
+    }
+  },
+  {
+    "model": "restaurantapi.restaurantlocation",
+    "pk": 7,
+    "fields": {
+      "city": 2,
+      "restaurant": 4,
+      "hours": "Wed-Sun 11am-9pm, Mon-Tue Closed",
+      "address": "222 Columbia Ave, Franklin, TN 37064"
     }
   }
 ]

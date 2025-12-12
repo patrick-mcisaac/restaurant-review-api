@@ -3,60 +3,100 @@
     "model": "restaurantapi.review",
     "pk": 1,
     "fields": {
-      "review": "Amazing food and excellent service! The ambiance was perfect for our anniversary dinner.",
-      "restaurant": 1,
-      "restaurant_location": 1,
-      "user": 1
+      "review": "Absolutely amazing experience! The service was impeccable and the food was outstanding. The modern take on Southern cuisine is perfectly executed.",
+      "score": 5,
+      "user": 1,
+      "restaurant_location": 1
     }
   },
   {
     "model": "restaurantapi.review",
     "pk": 2,
     "fields": {
-      "review": "Great restaurant but a bit pricey. The food quality was outstanding though.",
-      "restaurant": 1,
-      "restaurant_location": 1,
-      "user": 2
+      "review": "Great atmosphere and delicious food. A bit pricey, but worth it for special occasions.",
+      "score": 4,
+      "user": 2,
+      "restaurant_location": 1
     }
   },
   {
     "model": "restaurantapi.review",
     "pk": 3,
     "fields": {
-      "review": "Best pizza in Nashville! The crust is perfectly crispy and the toppings are always fresh.",
-      "restaurant": 2,
-      "restaurant_location": 2,
-      "user": 1
+      "review": "Best pizza in town! The crust is perfectly crispy and the toppings are always fresh. Highly recommend the Margherita.",
+      "score": 5,
+      "user": 1,
+      "restaurant_location": 3
     }
   },
   {
     "model": "restaurantapi.review",
     "pk": 4,
     "fields": {
-      "review": "Good pizza but service was a bit slow on a Saturday night. Still worth visiting!",
-      "restaurant": 2,
-      "restaurant_location": 3,
-      "user": 3
+      "review": "Good pizza, but can get crowded on weekends. Service was a bit slow during peak hours.",
+      "score": 3,
+      "user": 3,
+      "restaurant_location": 3
     }
   },
   {
     "model": "restaurantapi.review",
     "pk": 5,
     "fields": {
-      "review": "Fresh sushi and beautiful presentation. The chef's special roll was incredible.",
-      "restaurant": 3,
-      "restaurant_location": 4,
-      "user": 2
+      "review": "The sushi is incredibly fresh and beautifully presented. The chef's special roll is a must-try!",
+      "score": 5,
+      "user": 2,
+      "restaurant_location": 5
     }
   },
   {
     "model": "restaurantapi.review",
     "pk": 6,
     "fields": {
-      "review": "Authentic Tennessee BBQ! The ribs fall off the bone and the sauce is phenomenal.",
-      "restaurant": 4,
-      "restaurant_location": 5,
-      "user": 3
+      "review": "Decent sushi but nothing extraordinary. Prices are reasonable though.",
+      "score": 3,
+      "user": 1,
+      "restaurant_location": 5
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 7,
+    "fields": {
+      "review": "Authentic BBQ with a great smoky flavor. The ribs fall right off the bone!",
+      "score": 5,
+      "user": 3,
+      "restaurant_location": 6
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 8,
+    "fields": {
+      "review": "Love this place! The pulled pork is amazing and the sides are just as good.",
+      "score": 5,
+      "user": 2,
+      "restaurant_location": 6
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 9,
+    "fields": {
+      "review": "Solid BBQ. The Franklin location has a nice outdoor seating area.",
+      "score": 4,
+      "user": 1,
+      "restaurant_location": 7
+    }
+  },
+  {
+    "model": "restaurantapi.review",
+    "pk": 10,
+    "fields": {
+      "review": "The Brentwood location is convenient and the pizza is consistently good. Great for families!",
+      "score": 4,
+      "user": 3,
+      "restaurant_location": 4
     }
   }
 ]

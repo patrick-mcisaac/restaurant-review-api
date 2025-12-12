@@ -1,7 +1,7 @@
 from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from restaurantapi.models import Review, Restaurant, Location, RestaurantLocation
+from restaurantapi.models import Review, Restaurant, City, RestaurantLocation
 from django.contrib.auth.models import User
 
 class Reviews(ViewSet):
@@ -9,10 +9,10 @@ class Reviews(ViewSet):
         restaurant_id = request.query_params.get('restaurant', None)
         if restaurant_id is not None:
             restaurant = Restaurant.objects.get(pk=restaurant_id)
-            reviews = Review.objects.filter(restaurant=restaurant)
+            reviews = Review.objects.filter(restaurant_location__restaurant=restaurant)
             ser = ReviewSerializer(reviews, many=True, context={'user': request.auth.user})
             return Response(ser.data, status=status.HTTP_200_OK)
-    
+
     def retrieve(self, request, pk=None):
         try:
             review = Review.objects.get(pk=pk)
@@ -23,11 +23,12 @@ class Reviews(ViewSet):
 
     def create(self, request):
         restaurant = Restaurant.objects.get(pk=request.data.get('restaurant'))
-        location = RestaurantLocation.objects.get(pk=request.data.get('location'))
+        city = RestaurantLocation.objects.get(pk=request.data.get('city'))
         review = Review(
-            review = request.data.get('review'),
+            review = request.data.get('review', None),
+            score = request.data.get('score', None),
             restaurant = restaurant,
-            restaurant_location = location,
+            restaurant_location = city,
             user = request.auth.user
         )
         try:
@@ -52,7 +53,6 @@ class UserReviewSerializer(serializers.ModelSerializer):
         fields = ['username']
 
 class ReviewSerializer(serializers.ModelSerializer):
-    restaurant = RestaurantReviewSerializer()
     user = UserReviewSerializer()
     restaurant_location = serializers.SerializerMethodField()
     is_owner = serializers.SerializerMethodField()
@@ -62,19 +62,8 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
     def get_restaurant_location(self, obj):
-        location = Location.objects.get(pk=obj.restaurant_location.id)
-        return {'id':location.id,'city':location.city}
+        city = City.objects.get(pk=obj.restaurant_location.city_id)
+        return {'id':city.id,'city':city.name}
     class Meta:
         model = Review
-        fields = ['id', 'review', 'restaurant', 'user', 'restaurant_location', 'is_owner']
-
-# class CreateReviewSerializer(serializers.ModelSerializer):
-
-#     restaurant = serializers.PrimaryKeyRelatedField(queryset=Restaurant.objects.all())
-#     restaurant_location = serializers.PrimaryKeyRelatedField(queryset=RestaurantLocation.objects.all())
-#     user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
-
-#     class Meta:
-
-#         model = Review
-#         fields = ['review', 'restaurant', 'user', 'restaurant_location']
+        fields = ['id', 'review', 'score', 'user', 'restaurant_location', 'is_owner']

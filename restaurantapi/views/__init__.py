@@ -1,5 +1,4 @@
 from .restaurants import Restaurants
-from .locations import Locations
-from. ratings import Ratings
+from .Cities import Cities
 from .reviews import Reviews
 from .auth import Auth

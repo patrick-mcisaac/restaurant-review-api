@@ -1,29 +1,29 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from restaurantapi.models import Location
+from restaurantapi.models import City
 
-class Locations(ViewSet):
+class Cities(ViewSet):
     def list(self, request):
         restaurant = request.query_params.get('restaurant', None)
         if restaurant is not None:
-            locations = Location.objects.filter(restaurants__restaurant = restaurant)
-            ser = LocationSerializer(locations, many=True)
+            locations = City.objects.filter(restaurants__restaurant = restaurant)
+            ser = CitySerializer(locations, many=True)
             return Response(ser.data, status=status.HTTP_200_OK)
-        locations = Location.objects.all()
-        ser = LocationSerializer(locations, many=True)
+        locations = City.objects.all()
+        ser = CitySerializer(locations, many=True)
         return Response(ser.data, status=status.HTTP_200_OK)
 
     def retrieve(self, request, pk=None):
         try:
-            location = Location.objects.get(pk=pk)
-            ser = LocationSerializer(location, many=False)
+            location = City.objects.get(pk=pk)
+            ser = CitySerializer(location, many=False)
             return Response(ser.data, status=status.HTTP_200_OK)
-        except Location.DoesNotExist:
+        except City.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
-class LocationSerializer(serializers.ModelSerializer):
+class CitySerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Location
-        fields = ['id', 'city',]
+        model = City
+        fields = ['id', 'name',]
