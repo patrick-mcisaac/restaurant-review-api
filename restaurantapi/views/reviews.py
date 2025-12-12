@@ -35,7 +35,20 @@ class Reviews(ViewSet):
             return Response(None, status=status.HTTP_201_CREATED)
         except Exception as ex:
             return Response({'Error': str(ex)}, status=status.HTTP_400_BAD_REQUEST)
-    
+
+    def update(self, request, pk=None):
+        try:
+            review = Review.objects.get(pk=pk)
+            ser = ReviewUpdateSerializer(review, request.data)
+            if ser.is_valid():
+                ser.save()
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Review.DoesNotExist:
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
+
+
     def destroy(self, request, pk=None):
         try:
             review = Review.objects.get(pk=pk)
@@ -81,3 +94,14 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id', 'review', 'score', 'user', 'restaurant_location', 'is_owner', 'restaurant']
+
+
+class ReviewUpdateSerializer(serializers.ModelSerializer):
+
+    restaurant_location = serializers.PrimaryKeyRelatedField(queryset=RestaurantLocation.objects.all())
+    class Meta:
+        model = Review
+        fields = ['id','review', 'score', 'restaurant_location']
+    def update(self):
+        pass
+    #TODO: fix restaurant location updating to wrong location
