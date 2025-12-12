@@ -22,29 +22,21 @@ class Restaurants(ViewSet):
 
 class RestaurantLocationSerializer(serializers.ModelSerializer):
 
-    location = CitySerializer(many=False)
+    city=CitySerializer()
 
     class Meta:
         model = RestaurantLocation
-        fields = ['id', 'city', 'hours', 'address']
+        fields = ['id', 'city', 'hours', 'address', 'location_average_rating']
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
-
-    restaurant_reviews = serializers.SerializerMethodField()
     locations = serializers.SerializerMethodField()
 
-    def get_locations(self, obj):
-        locations = City.objects.filter(restaurants__restaurant=obj)
-        ser = CitySerializer(locations, many=True)
-        return ser.data
-
-
-    def get_restaurant_reviews(self, obj):
-        reviews = Review.objects.filter(restaurant_location__restaurant = obj)
-        ser = ReviewSerializer(reviews, many=True, context=self.context)
+    def get_locations(self,obj):
+        locations = RestaurantLocation.objects.filter(restaurant=obj)
+        ser = RestaurantLocationSerializer(locations, many=True)
         return ser.data
 
     class Meta:
         model = Restaurant
-        fields = ['id', 'name', 'description', 'image', 'average_ratings', 'restaurant_reviews', 'locations']
+        fields = ['id', 'name', 'description', 'image', 'average_ratings', 'locations']

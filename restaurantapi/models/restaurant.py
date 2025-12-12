@@ -14,3 +14,4 @@ class Restaurant(models.Model):
     def average_ratings(self):
         avg_score = Review.objects.filter(restaurant_location__restaurant=self).aggregate(Avg('score'))['score__avg'] or 0
         return round(avg_score,2)
+    

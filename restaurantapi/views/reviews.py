@@ -22,21 +22,30 @@ class Reviews(ViewSet):
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request):
-        restaurant = Restaurant.objects.get(pk=request.data.get('restaurant'))
-        city = RestaurantLocation.objects.get(pk=request.data.get('city'))
+        city = RestaurantLocation.objects.get(pk=request.data.get('location'))
         review = Review(
             review = request.data.get('review', None),
             score = request.data.get('score', None),
-            restaurant = restaurant,
             restaurant_location = city,
             user = request.auth.user
         )
         try:
             review.full_clean()
             review.save()
-            return Response(None, status=status.HTTP_204_NO_CONTENT)
+            return Response(None, status=status.HTTP_201_CREATED)
         except Exception as ex:
             return Response({'Error': str(ex)}, status=status.HTTP_400_BAD_REQUEST)
+    
+    def destroy(self, request, pk=None):
+        try:
+            review = Review.objects.get(pk=pk)
+            self.check_object_permissions(request=request, obj=review)
+            review.delete()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except Review.DoesNotExist:
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
+        except PermissionError as ex:
+            return Response({"error": str(ex)}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class RestaurantReviewSerializer(serializers.ModelSerializer):
@@ -56,14 +65,19 @@ class ReviewSerializer(serializers.ModelSerializer):
     user = UserReviewSerializer()
     restaurant_location = serializers.SerializerMethodField()
     is_owner = serializers.SerializerMethodField()
+    restaurant = serializers.SerializerMethodField()
 
+    def get_restaurant(self, obj):
+        restaurant = Restaurant.objects.get(pk = obj.restaurant_location.restaurant.id)
+        ser = RestaurantReviewSerializer(restaurant)
+        return ser.data
     def get_is_owner(self, obj):
         return obj.user == self.context['user']
 
 
     def get_restaurant_location(self, obj):
         city = City.objects.get(pk=obj.restaurant_location.city_id)
-        return {'id':city.id,'city':city.name}
+        return {'id':city.id,'name':city.name}
     class Meta:
         model = Review
-        fields = ['id', 'review', 'score', 'user', 'restaurant_location', 'is_owner']
+        fields = ['id', 'review', 'score', 'user', 'restaurant_location', 'is_owner', 'restaurant']
