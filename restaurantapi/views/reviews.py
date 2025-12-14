@@ -22,7 +22,7 @@ class Reviews(ViewSet):
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request):
-        city = RestaurantLocation.objects.get(pk=request.data.get('location'))
+        city = RestaurantLocation.objects.get(city=request.data.get('location'), restaurant=request.data.get('restaurant'))
         review = Review(
             review = request.data.get('review', None),
             score = request.data.get('score', None),
@@ -39,12 +39,15 @@ class Reviews(ViewSet):
     def update(self, request, pk=None):
         try:
             review = Review.objects.get(pk=pk)
-            ser = ReviewUpdateSerializer(review, request.data)
-            if ser.is_valid():
-                ser.save()
-                return Response(None, status=status.HTTP_204_NO_CONTENT)
-            else:
-                return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+            location = RestaurantLocation.objects.get(city=request.data.get('restaurant_location'), restaurant=request.data.get('restaurant'))
+            review.score = request.data.get('score')
+            review.restaurant_location = location
+            review.review = request.data.get('review')
+
+            review.full_clean()
+            review.save()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+
         except Review.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
@@ -94,14 +97,3 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id', 'review', 'score', 'user', 'restaurant_location', 'is_owner', 'restaurant']
-
-
-class ReviewUpdateSerializer(serializers.ModelSerializer):
-
-    restaurant_location = serializers.PrimaryKeyRelatedField(queryset=RestaurantLocation.objects.all())
-    class Meta:
-        model = Review
-        fields = ['id','review', 'score', 'restaurant_location']
-    def update(self):
-        pass
-    #TODO: fix restaurant location updating to wrong location
