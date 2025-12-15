@@ -30,9 +30,12 @@ class Reviews(ViewSet):
             restaurant_location = city,
             user = request.auth.user
         )
+        experiences = request.data.get('dining_experience')
+        checked_experiences = [experience['id'] for experience in experiences if experience['checked']]
         try:
             review.full_clean()
             review.save()
+            review.dining_experience.set(checked_experiences)
             return Response(None, status=status.HTTP_201_CREATED)
         except Exception as ex:
             return Response({'Error': str(ex)}, status=status.HTTP_400_BAD_REQUEST)
