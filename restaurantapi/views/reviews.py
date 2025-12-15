@@ -48,8 +48,13 @@ class Reviews(ViewSet):
             review.restaurant_location = location
             review.review = request.data.get('review')
 
+            experiences = request.data.get('dining_experience')
+            checked_experiences = [experience['id'] for experience in experiences if experience['checked']]
+
             review.full_clean()
             review.save()
+
+            review.dining_experience.set(checked_experiences)
             return Response(None, status=status.HTTP_204_NO_CONTENT)
 
         except Review.DoesNotExist:
@@ -60,6 +65,7 @@ class Reviews(ViewSet):
         try:
             review = Review.objects.get(pk=pk)
             self.check_object_permissions(request=request, obj=review)
+            review.dining_experience.clear()
             review.delete()
             return Response(None, status=status.HTTP_204_NO_CONTENT)
         except Review.DoesNotExist:
