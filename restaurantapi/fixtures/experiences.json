@@ -1,0 +1,87 @@
+
+    [
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 1,
+    "fields": {
+      "description": "Quick Service"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 2,
+    "fields": {
+      "description": "Attentiveness"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 3,
+    "fields": {
+      "description": "Food Quality"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 4,
+    "fields": {
+      "description": "Cleanliness"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 5,
+    "fields": {
+      "description": "Ambiance"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 6,
+    "fields": {
+      "description": "Value for Money"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 7,
+    "fields": {
+      "description": "Portion Size"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 8,
+    "fields": {
+      "description": "Menu Variety"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 9,
+    "fields": {
+      "description": "Presentation"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 12,
+    "fields": {
+      "description": "Wait Time"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 13,
+    "fields": {
+      "description": "Staff Friendliness"
+    }
+  },
+  {
+    "model": "restaurantapi.diningexperience",
+    "pk": 14,
+    "fields": {
+      "description": "Accuracy of Order"
+    }
+  }
+]

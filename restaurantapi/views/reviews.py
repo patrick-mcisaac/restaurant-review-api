@@ -2,6 +2,7 @@ from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from restaurantapi.models import Review, Restaurant, City, RestaurantLocation
+from .dining_experiences import DiningExperienceSerializer
 from django.contrib.auth.models import User
 
 class Reviews(ViewSet):
@@ -82,6 +83,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     restaurant_location = serializers.SerializerMethodField()
     is_owner = serializers.SerializerMethodField()
     restaurant = serializers.SerializerMethodField()
+    dining_experience = DiningExperienceSerializer(many=True)
 
     def get_restaurant(self, obj):
         restaurant = Restaurant.objects.get(pk = obj.restaurant_location.restaurant.id)
@@ -96,4 +98,4 @@ class ReviewSerializer(serializers.ModelSerializer):
         return {'id':city.id,'name':city.name}
     class Meta:
         model = Review
-        fields = ['id', 'review', 'score', 'user', 'restaurant_location', 'is_owner', 'restaurant']
+        fields = ['id', 'review', 'score', 'user', 'restaurant_location', 'is_owner', 'restaurant', 'dining_experience']

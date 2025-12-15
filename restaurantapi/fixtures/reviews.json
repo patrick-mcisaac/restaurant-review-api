@@ -6,7 +6,8 @@
       "review": "Absolutely amazing experience! The service was impeccable and the food was outstanding. The modern take on Southern cuisine is perfectly executed.",
       "score": 5,
       "user": 1,
-      "restaurant_location": 1
+      "restaurant_location": 1,
+      "dining_experience": [2, 3, 9]
     }
   },
   {
@@ -16,7 +17,8 @@
       "review": "Great atmosphere and delicious food. A bit pricey, but worth it for special occasions.",
       "score": 4,
       "user": 2,
-      "restaurant_location": 1
+      "restaurant_location": 1,
+      "dining_experience": [3, 5, 6]
     }
   },
   {
@@ -26,7 +28,8 @@
       "review": "Best pizza in town! The crust is perfectly crispy and the toppings are always fresh. Highly recommend the Margherita.",
       "score": 5,
       "user": 1,
-      "restaurant_location": 3
+      "restaurant_location": 3,
+      "dining_experience": [3, 9, 7]
     }
   },
   {
@@ -36,7 +39,8 @@
       "review": "Good pizza, but can get crowded on weekends. Service was a bit slow during peak hours.",
       "score": 3,
       "user": 3,
-      "restaurant_location": 3
+      "restaurant_location": 3,
+      "dining_experience": [12, 1]
     }
   },
   {
@@ -46,7 +50,8 @@
       "review": "The sushi is incredibly fresh and beautifully presented. The chef's special roll is a must-try!",
       "score": 5,
       "user": 2,
-      "restaurant_location": 5
+      "restaurant_location": 5,
+      "dining_experience": [3, 9, 2]
     }
   },
   {
@@ -56,7 +61,8 @@
       "review": "Decent sushi but nothing extraordinary. Prices are reasonable though.",
       "score": 3,
       "user": 1,
-      "restaurant_location": 5
+      "restaurant_location": 5,
+      "dining_experience": [6, 3]
     }
   },
   {
@@ -66,7 +72,8 @@
       "review": "Authentic BBQ with a great smoky flavor. The ribs fall right off the bone!",
       "score": 5,
       "user": 3,
-      "restaurant_location": 6
+      "restaurant_location": 6,
+      "dining_experience": [3, 7, 13]
     }
   },
   {
@@ -76,7 +83,8 @@
       "review": "Love this place! The pulled pork is amazing and the sides are just as good.",
       "score": 5,
       "user": 2,
-      "restaurant_location": 6
+      "restaurant_location": 6,
+      "dining_experience": [3, 7, 5]
     }
   },
   {
@@ -86,7 +94,8 @@
       "review": "Solid BBQ. The Franklin location has a nice outdoor seating area.",
       "score": 4,
       "user": 1,
-      "restaurant_location": 7
+      "restaurant_location": 7,
+      "dining_experience": [3, 5, 4]
     }
   },
   {
@@ -96,7 +105,8 @@
       "review": "The Brentwood location is convenient and the pizza is consistently good. Great for families!",
       "score": 4,
       "user": 3,
-      "restaurant_location": 4
+      "restaurant_location": 4,
+      "dining_experience": [3, 4, 1]
     }
   }
 ]

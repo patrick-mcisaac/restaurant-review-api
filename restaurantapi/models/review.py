@@ -8,3 +8,4 @@ class Review(models.Model):
     score = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)], null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='restaurant_reviews')
     restaurant_location = models.ForeignKey('RestaurantLocation', on_delete=models.CASCADE, related_name='review')
+    dining_experience = models.ManyToManyField('DiningExperience')

@@ -10,4 +10,5 @@ python3 manage.py loaddata tokens
 python3 manage.py loaddata cities
 python3 manage.py loaddata restaurants
 python3 manage.py loaddata restaurant_locations
+python3 manage.py loaddata experiences
 python3 manage.py loaddata reviews
