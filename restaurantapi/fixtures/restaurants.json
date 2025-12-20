@@ -1,38 +1,38 @@
 [
-  {
-    "model": "restaurantapi.restaurant",
-    "pk": 1,
-    "fields": {
-      "name": "The Fancy Fork",
-      "description": "Upscale dining with a modern twist on Southern classics",
-      "image": "images/clifford-VobvKmG-StA-unsplash.jpg"
-    }
-  },
-  {
-    "model": "restaurantapi.restaurant",
-    "pk": 2,
-    "fields": {
-      "name": "Pizza Paradise",
-      "description": "Authentic wood-fired pizzas with fresh ingredients",
-      "image": "images/alessio-dandi-LusjIyLfZ70-unsplash.jpg"
-    }
-  },
-  {
-    "model": "restaurantapi.restaurant",
-    "pk": 3,
-    "fields": {
-      "name": "Sushi Sensation",
-      "description": "Fresh sushi and Japanese cuisine in a contemporary setting",
-      "image": "images/howard-zheng-6ef-qsXEb9s-unsplash.jpg"
-    }
-  },
-  {
-    "model": "restaurantapi.restaurant",
-    "pk": 4,
-    "fields": {
-      "name": "BBQ Barn",
-      "description": "Slow-smoked meats and traditional Tennessee BBQ",
-      "image": "images/fabio-alves-PNlfWzu_oMo-unsplash.jpg"
-    }
-  }
+	{
+		"model": "restaurantapi.restaurant",
+		"pk": 1,
+		"fields": {
+			"name": "The Fancy Fork",
+			"description": "Upscale dining with a modern twist on Southern classics",
+			"image": "images/clifford-VobvKmG-StA-unsplash.jpg"
+		}
+	},
+	{
+		"model": "restaurantapi.restaurant",
+		"pk": 2,
+		"fields": {
+			"name": "Pizza Paradise",
+			"description": "Authentic wood-fired pizzas with fresh ingredients",
+			"image": "images/precious-madubuike-XIPo9vw8wcw-unsplash.jpg"
+		}
+	},
+	{
+		"model": "restaurantapi.restaurant",
+		"pk": 3,
+		"fields": {
+			"name": "Sushi Sensation",
+			"description": "Fresh sushi and Japanese cuisine in a contemporary setting",
+			"image": "images/howard-zheng-6ef-qsXEb9s-unsplash.jpg"
+		}
+	},
+	{
+		"model": "restaurantapi.restaurant",
+		"pk": 4,
+		"fields": {
+			"name": "BBQ Barn",
+			"description": "Slow-smoked meats and traditional Tennessee BBQ",
+			"image": "images/andrea-de-santis-WuBxrrg_XWI-unsplash.jpg"
+		}
+	}
 ]

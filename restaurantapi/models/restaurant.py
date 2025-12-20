@@ -8,7 +8,6 @@ from .review import Review
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    # TODO: make a seperate image model so i can have many images
     image = models.ImageField(
         upload_to="images", width_field=None, height_field=None, blank=True, null=True
     )
