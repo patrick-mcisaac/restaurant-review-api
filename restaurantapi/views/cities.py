@@ -3,11 +3,12 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from restaurantapi.models import City
 
+
 class Cities(ViewSet):
     def list(self, request):
-        restaurant = request.query_params.get('restaurant', None)
+        restaurant = request.query_params.get("restaurant", None)
         if restaurant is not None:
-            locations = City.objects.filter(restaurants__restaurant = restaurant)
+            locations = City.objects.filter(restaurants__restaurant=restaurant)
             ser = CitySerializer(locations, many=True)
             return Response(ser.data, status=status.HTTP_200_OK)
         locations = City.objects.all()
@@ -22,8 +23,12 @@ class Cities(ViewSet):
         except City.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
+
 class CitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ['id', 'name',]
+        fields = [
+            "id",
+            "name",
+        ]
