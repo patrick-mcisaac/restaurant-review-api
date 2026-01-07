@@ -17,3 +17,4 @@ class Review(models.Model):
         "RestaurantLocation", on_delete=models.CASCADE, related_name="review"
     )
     dining_experience = models.ManyToManyField("DiningExperience")
+    created_at = models.DateTimeField(auto_now_add=True)
