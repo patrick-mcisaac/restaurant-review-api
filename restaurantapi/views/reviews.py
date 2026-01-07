@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.contrib.auth.models import User
 from rest_framework import serializers, status
 from rest_framework.response import Response
@@ -11,7 +12,9 @@ class Reviews(ViewSet):
         restaurant_id = request.query_params.get("restaurant", None)
         if restaurant_id is not None:
             restaurant = Restaurant.objects.get(pk=restaurant_id)
-            reviews = Review.objects.filter(restaurant_location__restaurant=restaurant)
+            reviews = Review.objects.filter(
+                restaurant_location__restaurant=restaurant
+            ).order_by("-created_at")
             ser = ReviewSerializer(
                 reviews, many=True, context={"user": request.auth.user}
             )
