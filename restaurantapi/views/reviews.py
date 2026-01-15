@@ -133,4 +133,5 @@ class ReviewSerializer(serializers.ModelSerializer):
             "is_owner",
             "restaurant",
             "dining_experience",
+            "created_at",
         ]
