@@ -5,5 +5,9 @@
 		"--django-settings-module=bangazon.settings",
 		"--max-line-length=120"
 	],
-	"cSpell.words": ["dotenv", "restaurantapi"]
+	"cSpell.words": [
+		"dotenv",
+		"restaurantapi"
+	],
+	"python-envs.defaultEnvManager": "ms-python.python:pipenv"
 }
