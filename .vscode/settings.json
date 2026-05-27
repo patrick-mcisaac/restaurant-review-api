@@ -5,9 +5,12 @@
     "--django-settings-module=bangazon.settings",
     "--max-line-length=120"
   ],
-  "cSpell.words": ["dotenv", "restaurantapi"],
+  "cSpell.words": ["dotenv", "pytest", "restaurantapi", "restaurantproject"],
   "python-envs.defaultEnvManager": "ms-python.python:pipenv",
-  "python.testing.pytestArgs": ["restaurantapi"],
+  "python.testing.pytestArgs": [
+    "restaurantapi",
+    "--ds=restaurantproject.settings.test"
+  ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
   "python.testing.unittestArgs": [
