@@ -12,6 +12,7 @@ django-cors-headers = "*"
 pylint-django = "*"
 python-dotenv = "*"
 pillow = "*"
+pytest = "*"
 
 [dev-packages]
 

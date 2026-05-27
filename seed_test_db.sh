@@ -11,4 +11,5 @@ pipenv run python3 manage.py loaddata cities --settings=restaurantproject.settin
 pipenv run python3 manage.py loaddata restaurants --settings=restaurantproject.settings.test
 pipenv run python3 manage.py loaddata restaurant_locations --settings=restaurantproject.settings.test
 pipenv run python3 manage.py loaddata experiences --settings=restaurantproject.settings.test
+
 pipenv run python3 manage.py loaddata reviews --settings=restaurantproject.settings.test
